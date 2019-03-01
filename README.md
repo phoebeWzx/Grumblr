@@ -1,9 +1,5 @@
 # README
 
-### DNS for homework#6
-
-http://ec2-100-26-190-77.compute-1.amazonaws.com:8000/
-
 #### LoginPage
 
 - The ``Sign Up`` on the Navbar links to the registration page
