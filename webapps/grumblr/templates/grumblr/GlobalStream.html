@@ -1,0 +1,51 @@
+{% extends 'base2.html' %}
+
+{% block title %}
+	Golbal Stream
+{% endblock %}
+
+{% block js %}
+    {% load static %}
+    <script src="{% static 'grumblr/js/global_stream.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+{% block button1 %}
+<a class="nav-link active" href="{% url 'profile' username%}">My Profile</a>
+{% endblock %}
+
+{% block button2 %}
+<a class="nav-link" href="{% url 'logout'%}">Sign out</a>
+{% endblock %}
+
+{% block button3 %}
+    <li class="nav-item">
+    <a class="nav-link btn-outline-success" href="{% url 'follower-stream'%}">Follower Stream</a>
+    </li>
+{% endblock %}
+
+
+{% block rightcontent %} 
+<h1> Hello, {{user.first_name}} {{user.last_name}}! </h1><br><br>
+
+<form id="post-form" method="POST">
+{% csrf_token %}
+<div class="form-group">
+    {{ post_form.errors }}
+    {% for field in post_form %}
+        {{field}} {{field.errors}}
+        <br>
+        <button class="btn btn-outline-success" id="post-button">Post a new grumblr!</button>
+    {% endfor %}
+</div>
+</form>
+
+{% endblock %}
+
+{% block leftcontent %}
+<!--list all the posts-->
+<div class="list-group" id="posts-list"></div>
+{% endblock %}
+
+
+
+		
