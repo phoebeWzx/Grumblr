@@ -1,0 +1,22 @@
+{% load static%}
+<div id='{{ post_id }}' class='list-group-item list-group-item-action flex-column align-items-start'>
+<div class='d-flex w-100 justify-content-between'>
+<small class='text-muted'>{{time}}</small>
+</div>
+<div class='d-flex w-100 justify-content-between'>
+<a href='{% url 'profile' person.username %}'>
+<img class='img-rounded avatar' src='{{MEDIA_URL}}{{ person.profile.avatar.url }}' alt=“avatar”>
+</a>
+<p class='mb-1'>{{post}}</p>
+</div>
+<div class='d-flex w-100 justify-content-between'>
+<small class='text-muted'>{{person.first_name}} {{person.last_name}}</small>
+<small class='text-muted'>{{date}}</small>
+</div>
+<div class='d-flex w-100 form-group form-inline'>
+<input id='comment-field{{ post_id }}' class='form-control' placeholder='Add comment' maxlength='42'>
+<button class='btn btn-outline-success' type='submit' onclick='addComment({{ post_id }})'>Comment</button>
+<br>
+</div>
+    <div id='comment-list{{ post_id }}' class='comment-list'></div>
+</div>

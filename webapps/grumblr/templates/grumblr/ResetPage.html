@@ -1,0 +1,52 @@
+{% extends 'base1.html' %}
+
+{% block title %}
+	Reset
+{% endblock %}
+
+{% block background %}
+<body class="background1">
+{% endblock %}
+
+{% block button1 %}
+<a class="nav-link active" href="{% url 'home' %}">Login</a>
+{% endblock %}
+
+{% block button2 %}
+<a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+{% endblock %}
+
+{% block leadtext %}
+<p class="lead text-center text-uppercase"> Reset the Password </p>
+{% endblock %}
+
+{% block form %}
+	<form class="px-5 py-3 input" action="#" method="POST">
+{% endblock %}
+
+{% block error %}
+    <div class="errorlist">
+    {% for error in form.non_field_errors %}
+        <ul class="errorlist">
+        <li>{{error}} </li>
+        </ul>
+    {% endfor %}
+    {% if error %}
+        <ul class="errorlist">
+        <li>{{error}} </li>
+        </ul>
+        {% endif %}
+    </div>
+{% endblock %}
+
+
+{% block edit %}
+  {% for field in form %}
+    <div class="form-group">
+    {{field.label_tag}}
+    {{field}}
+    {{ field.errors }}
+    </div>
+  {% endfor %}
+    <br><br><br><br><br>
+{% endblock %}
